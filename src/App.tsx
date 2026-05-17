@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import {
   CHAPTERS, DAILY_ROUTINE, PHASES, NON_NEGOTIABLES, ALL_DATES,
@@ -23,6 +23,15 @@ function App() {
   const [activeTab, setActiveTab] = useState<Tab>('dashboard');
   const [state, setState] = useLocalStorage<AppState>('neet-prep-state-v2', INITIAL_STATE);
   const [selectedDate, setSelectedDate] = useState<string>(getTodayStr());
+  const dayDetailRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (activeTab === 'tracker' && window.innerWidth <= 768 && dayDetailRef.current) {
+      setTimeout(() => {
+        dayDetailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    }
+  }, [selectedDate, activeTab]);
 
   const today = getTodayStr();
   const daysRemaining = getDaysRemaining();
@@ -382,7 +391,7 @@ function App() {
             })}
           </div>
 
-          <div className="day-detail">
+          <div className="day-detail" ref={dayDetailRef}>
             <div className="day-detail-header">
               <h3 style={{ margin: 0 }}>
                 {formatDate(selectedDate)} ({getDayName(selectedDate)})
