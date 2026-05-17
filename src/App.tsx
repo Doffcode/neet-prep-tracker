@@ -153,7 +153,7 @@ function App() {
       <div className="countdown-banner">
         <div className="countdown-item">
           <span className="countdown-value">{daysRemaining}</span>
-          <span className="countdown-label">Days to July 20</span>
+          <span className="countdown-label">Days to Jun 20</span>
         </div>
         <span className="countdown-divider">|</span>
         <div className="countdown-item">
@@ -502,7 +502,7 @@ function App() {
       )}
 
       <footer style={{ marginTop: '4rem', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
-        NEET Prep Tracker &mdash; {daysRemaining} days to July 20.
+        NEET Prep Tracker &mdash; {daysRemaining} days to Jun 20.
       </footer>
     </div>
   );

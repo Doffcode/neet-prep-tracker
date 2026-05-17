@@ -22,9 +22,9 @@ export function getTodayStr(): string {
 export function getDaysRemaining(): number {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const exam = new Date(EXAM_DATE);
-  exam.setHours(0, 0, 0, 0);
-  const diff = exam.getTime() - today.getTime();
+  const end = new Date(END_DATE);
+  end.setHours(0, 0, 0, 0);
+  const diff = end.getTime() - today.getTime();
   return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 }
 
