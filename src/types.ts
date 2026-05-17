@@ -28,8 +28,15 @@ export interface MockLog {
   mistakes: string;
 }
 
+export interface DayLog {
+  date: string;
+  completedTasks: string[];
+  completedChapters: string[];
+  mockScore?: number;
+  notes: string;
+}
+
 export interface AppState {
-  completedChapters: string[]; // array of chapter ids
-  completedDailyTasks: string[]; // array of task ids (resets daily or manual)
+  dayLogs: DayLog[];
   mockLogs: MockLog[];
 }
