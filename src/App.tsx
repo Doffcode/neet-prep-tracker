@@ -411,21 +411,24 @@ function App() {
               </label>
             ))}
 
-            <h4 style={{ color: 'var(--accent)', marginTop: '1.5rem', marginBottom: '0.75rem' }}>Chapters Studied</h4>
-            <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
-              {(['Biology', 'Chemistry', 'Physics'] as Subject[]).map(subject => (
-                <div key={subject} style={{ marginBottom: '1rem' }}>
-                  <h5 style={{ marginBottom: '0.25rem' }}>{subject}</h5>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1.5rem', marginBottom: '0.75rem' }}>
+              <h4 style={{ color: 'var(--accent)', margin: 0 }}>Chapters Studied</h4>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{selectedDayLog.completedChapters.length}/{CHAPTERS.length}</span>
+            </div>
+            {(['Biology', 'Chemistry', 'Physics'] as Subject[]).map(subject => (
+              <details key={subject} style={{ marginBottom: '0.75rem' }} open>
+                <summary style={{ cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', padding: '0.25rem 0' }}>{subject}</summary>
+                <div style={{ marginLeft: '0.5rem', marginTop: '0.25rem' }}>
                   {(['S', 'A', 'B'] as Tier[]).map(tier => {
                     const filtered = CHAPTERS.filter(c => c.subject === subject && c.tier === tier);
                     if (filtered.length === 0) return null;
                     return (
-                      <div key={tier} style={{ marginLeft: '0.5rem', marginBottom: '0.5rem' }}>
-                        <span className={`tier-badge tier-${tier.toLowerCase()}`} style={{ fontSize: '0.65rem', marginBottom: '0.25rem', display: 'inline-block' }}>
+                      <div key={tier} style={{ marginBottom: '0.4rem' }}>
+                        <span className={`tier-badge tier-${tier.toLowerCase()}`} style={{ fontSize: '0.6rem', marginBottom: '0.15rem', display: 'inline-block' }}>
                           {tier}
                         </span>
                         {filtered.map(chapter => (
-                          <label key={chapter.id} className="checkbox-item" style={{ padding: '0.35rem 0.5rem', fontSize: '0.85rem' }}>
+                          <label key={chapter.id} className="checkbox-item" style={{ padding: '0.3rem 0.4rem', fontSize: '0.8rem' }}>
                             <input
                               type="checkbox"
                               checked={selectedDayLog.completedChapters.includes(chapter.id)}
@@ -440,8 +443,8 @@ function App() {
                     );
                   })}
                 </div>
-              ))}
-            </div>
+              </details>
+            ))}
 
             <div className="input-group note-input">
               <label style={{ fontWeight: 700, marginBottom: '0.25rem' }}>Daily Notes</label>

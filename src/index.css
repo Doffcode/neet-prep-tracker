@@ -444,74 +444,93 @@ input, textarea {
 /* Responsive */
 @media (max-width: 768px) {
   body {
-    padding: 1rem;
+    padding: 0.75rem;
   }
-  h1 { font-size: 1.5rem !important; }
-  h2 { font-size: 1.2rem; }
-  h3 { font-size: 1rem; }
+  h1 { font-size: 1.3rem !important; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 0.95rem; }
 
   .container { max-width: 100%; }
 
   .nav {
-    gap: 0.4rem;
+    gap: 0.3rem;
     justify-content: flex-start;
     flex-wrap: nowrap;
   }
   .nav-link {
-    padding: 0.4rem 0.65rem;
-    font-size: 0.8rem;
+    padding: 0.35rem 0.55rem;
+    font-size: 0.75rem;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
   }
 
-  .card { padding: 1rem; }
+  .card { padding: 0.85rem; }
 
   .countdown-banner {
-    padding: 0.75rem 1rem;
-    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    gap: 0.5rem;
   }
-  .countdown-value { font-size: 1.5rem; }
-  .countdown-divider { font-size: 1.5rem; }
+  .countdown-value { font-size: 1.3rem; }
+  .countdown-divider { font-size: 1.2rem; margin: 0 0.25rem; }
+  .countdown-label { font-size: 0.6rem; }
 
   .day-grid {
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    overflow-x: auto;
     gap: 0.3rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  .day-cell { font-size: 0.7rem; padding: 0.2rem; }
+  .day-grid::-webkit-scrollbar { display: none; }
+  .day-cell {
+    min-width: 44px;
+    height: 44px;
+    aspect-ratio: unset;
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.3rem;
+  }
   .day-cell-date { font-size: 0.75rem; }
-  .day-cell-name { font-size: 0.6rem; }
+  .day-cell-name { font-size: 0.55rem; }
 
   .day-toolbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 0.5rem;
   }
   .day-toolbar select { width: 100%; }
 
-  .day-detail { padding: 1rem; }
+  .day-detail { padding: 0.85rem; }
   .day-detail-header { flex-direction: column; }
 
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .stat-card { padding: 0.6rem; }
+  .stat-value { font-size: 1.2rem; }
 
-  .graph-label { width: 65px; font-size: 0.75rem; }
-  .graph-bar-container { height: 18px; }
+  .graph-label { width: 60px; font-size: 0.7rem; }
+  .graph-bar-container { height: 16px; }
+  .graph-row { gap: 0.5rem; }
 
-  .checkbox-item { padding: 0.5rem; gap: 0.5rem; font-size: 0.85rem; }
+  .checkbox-item { padding: 0.4rem; gap: 0.4rem; font-size: 0.8rem; }
 
-  input, textarea, select { font-size: 0.9rem; padding: 0.6rem; }
+  input, textarea, select { font-size: 0.85rem; padding: 0.5rem; }
 
-  .btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
+  .btn { padding: 0.45rem 0.85rem; font-size: 0.8rem; }
 
-  footer { margin-top: 2rem; }
+  .day-detail .checkbox-item { margin-bottom: 0.4rem; }
+
+  footer { margin-top: 1.5rem; font-size: 0.7rem; }
 }
 
 @media (max-width: 400px) {
-  .day-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .nav-link { font-size: 0.7rem; padding: 0.35rem 0.5rem; }
-  .countdown-value { font-size: 1.3rem; }
-  .countdown-banner { gap: 0.5rem; }
+  body { padding: 0.5rem; }
+  .nav-link { font-size: 0.7rem; padding: 0.3rem 0.45rem; }
+  .countdown-value { font-size: 1.1rem; }
+  .day-cell { min-width: 38px; height: 38px; }
 }
