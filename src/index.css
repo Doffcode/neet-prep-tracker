@@ -479,25 +479,20 @@ input, textarea {
   .countdown-label { font-size: 0.6rem; }
 
   .day-grid {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 0.3rem;
-    padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
   }
-  .day-grid::-webkit-scrollbar { display: none; }
   .day-cell {
-    min-width: 44px;
-    height: 44px;
-    aspect-ratio: unset;
-    flex-shrink: 0;
+    aspect-ratio: 1;
+    min-width: unset;
+    height: auto;
     font-size: 0.7rem;
-    padding: 0.15rem 0.3rem;
+    padding: 0.15rem;
   }
   .day-cell-date { font-size: 0.75rem; }
-  .day-cell-name { font-size: 0.55rem; }
+  .day-cell-name { font-size: 0.6rem; }
 
   .day-toolbar {
     flex-direction: column;
@@ -532,5 +527,5 @@ input, textarea {
   body { padding: 0.5rem; }
   .nav-link { font-size: 0.7rem; padding: 0.3rem 0.45rem; }
   .countdown-value { font-size: 1.1rem; }
-  .day-cell { min-width: 38px; height: 38px; }
+  .day-grid { grid-template-columns: repeat(4, 1fr); }
 }
